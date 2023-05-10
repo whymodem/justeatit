@@ -274,6 +274,37 @@ $ curl -X GET "http://localhost:4000/api/v1/food_facilities/random?count=2"
   ]
 }
 ```
+Finally, you can also a query string parameter for the seed as well, similiar to the main web app:
+
+```bash
+$ curl -X GET "http://localhost:4000/api/v1/food_facilities/random?count=2&seed=lovelychickens"
+```
+
+```json
+{
+  "data": [
+    {
+      "address": "Assessors Block 4296/Lot010",
+      "facility_type": "truck",
+      "id": 57,
+      "latitude": "37.75240499247832",
+      "longitude": "-122.38700019629786",
+      "menu_description": "Burgers, melts, hot dogs, burritos,sandwiches, fries, onion rings, drinks",
+      "name": "Natan's Catering"
+    },
+    {
+      "address": "2600 INGALLS ST",
+      "facility_type": "truck",
+      "id": 86,
+      "latitude": "37.722629217598346",
+      "longitude": "-122.39006184632663",
+      "menu_description": "Corndogs, fried burrito, rice placet, soda, water, sandwiches, soup, noodle plates",
+      "name": "Eva's Catering"
+    }
+  ]
+}
+```
+
 ## Create
 
 Create a food location:
