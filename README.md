@@ -498,7 +498,7 @@ Generally, for this initial release, we aimed to keep things as minimal as possi
 
 Further, we did not want to depend on 3rd party libs, APIs, extensions, or other moving parts as much as possible for the Geo elements that would be valuable going forward. For instance, a quick scan of some Elixir geo libraries and Ecto add-ons reveals many are unmaintained or have critical issues that could have cost us time. We therefore elected caution for this simple release given constraints of two hours.
 
-The major changes going forward we would make are:
+The major changes going forward are vast, however a sample of changes we would make include but are not limited to:
 
 * Use Elixir Geo/GIS libraries after extensive testing
   * Geocoding, Geo types, Ecto support for Postgres
@@ -514,6 +514,17 @@ The major changes going forward we would make are:
   * There is some built-in pooling and caching via Phoenix, however any app could always use more as it grows
   * We did not want to overcomplicate things with caching, especially before any kind of cluster or scaling is involved
   * BEAM and OTP provide mechanisms that can do quite a bit, for example keeping state in a GenServer per node, using ETS, in-process/embedded DBs etc.
+* Code
+ * Better organization of modules as the scale and size of the app provides some context and direction
+ * Specs and use of Dialyzer and other analysis tools
+ * Breaking up some modules and functionality out of contorllers
+ * More use of Ecto for validations, more complex queries, etc.
+* Data
+ * Auth information used in fields for auditing changes (created, modified, etc.)
+ * More entity types such as Vendors
+ * Background import process that runs on a schedule if seed data needs to be refreshed
+ * More data checks and data transformations on source data
+ * Improvements to data via above cleaning and checks, such as tagging data with food types based on descriptions 
 
 # Future
 
