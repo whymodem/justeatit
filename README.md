@@ -488,6 +488,9 @@ $ PORT=4000 MIX_ENV=prod mix phx.server
 * The user does not want to continually refresh the seeded SF data in the background
 * User deploying the app is at least remotely familiar with Phoenix, Elixir, and/or Docker
 * We aren't feature complete
+* Although the dataset is small and could be cached entirely in-memory, we did not do this because this is supposed to be the beginning of a proper app, not just trying to exploit a single use-case
+ * If the only use-case was ever this one dataset and it was known it was bounded, we might consider only in-memory
+ * We wanted to demonstrated use of at least one DB
 
 # Other Concerns
 
@@ -507,6 +510,10 @@ The major changes going forward we would make are:
 * Postgres GIS extensions
   * If support is not required/desired for other databases like SQLite
 * Expanded use of live view features like refreshing random data at intervals on a map
+* Caching
+  * There is some built-in pooling and caching via Phoenix, however any app could always use more as it grows
+  * We did not want to overcomplicate things with caching, especially before any kind of cluster or scaling is involved
+  * BEAM and OTP provide mechanisms that can do quite a bit, for example keeping state in a GenServer per node, using ETS, in-process/embedded DBs etc.
 
 # Future
 
